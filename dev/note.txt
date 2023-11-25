@@ -1,1 +1,37 @@
 this is a note :)
+
+initial plan/ideas
+
+simple platformer - collect all the bits
+
+----------- core mechanics
+
+character:
+jump
+walljump
+climbe ladders
+use doors
+use levers
+read signes
+
+level:
+
+tile map
+
+bits to collect
+
+ladders
+doors
+levers
+signes
+
+----------- extra ideas
+
+power up(s)
+bouncy things
+special hidden thing to collect
+
+----------- theme/style
+
+low rez pixel art
+8x8 tiles
