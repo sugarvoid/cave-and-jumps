@@ -1,30 +1,74 @@
 extends CharacterBody2D
 class_name Character
 
-const SPEED = 100.0
+const SPEED = 120.0
+const DEFAULT_GRAVITY = 900.0
 const JUMP_VELOCITY = -200.0
+const COYOTE_TIME = 0.1
+const JUMP_REDUCTION = 0.4
+const GROUND_ACCEL = 0.6
+const GROUND_DECEL = 0.5
+const AIR_ACCEL = 0.4
+const AIR_DECEL = 0.09
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity = DEFAULT_GRAVITY
+var air_timer = 0.0
+var input_direction = 0.0
+var direction_facing = Vector2.RIGHT
+
+var can_jump = true
+var can_reduce_jump = true
+var can_turn = true
+var can_move = true
+
+@onready var PrejumpTimer = $PrejumpTimer
 
 
-func _physics_process(delta):
-	# Add the gravity.
+func _physics_process(delta):	
+	input_direction = Input.get_axis("left", "right")
+	
 	if not is_on_floor():
-		velocity.y += gravity * delta
-
-	# Handle Jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("left", "right")
-	if direction:
-		velocity.x = direction * SPEED
+		air_timer += delta
+		if velocity.y > 0:
+			velocity.y += gravity * delta
+		else:
+			velocity.y += gravity *1.1 * delta
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		air_timer = 0.0
+	
+	if can_jump:
+		if Input.is_action_just_pressed("jump"):
+			PrejumpTimer.start()
+		if not PrejumpTimer.is_stopped() and air_timer < COYOTE_TIME:
+			if Input.is_action_pressed("jump"):
+				velocity.y = JUMP_VELOCITY
+			else:
+				velocity.y = JUMP_VELOCITY * JUMP_REDUCTION
+			PrejumpTimer.stop()
+	
+	if can_reduce_jump:
+		if velocity.y < 0 and Input.is_action_just_released("jump"):
+			velocity.y *= JUMP_REDUCTION
+	
+	if can_turn:
+		if input_direction > 0:
+			direction_facing = Vector2.RIGHT
+		elif input_direction < 0:
+			direction_facing = Vector2.LEFT
+	
+	if can_move:
+		if input_direction:
+			if is_on_floor():
+				velocity.x = lerp(velocity.x, input_direction * SPEED, GROUND_ACCEL)
+			else:
+				velocity.x = lerp(velocity.x, input_direction * SPEED, AIR_ACCEL)
+		else:
+			if is_on_floor():
+				velocity.x = lerp(velocity.x, input_direction * SPEED, GROUND_DECEL)
+			else:
+				velocity.x = lerp(velocity.x, 0.0, AIR_DECEL)
+	
+		
 	move_and_slide()
 
 
