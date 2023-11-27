@@ -3,8 +3,6 @@
 
 dev = development folder
 
-exp = exported game
-
 src = source code
 
 xtr = extra stuff
