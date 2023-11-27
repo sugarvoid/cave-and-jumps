@@ -1,5 +1,7 @@
 # Get That Bit
- Simple platformer made with godot
+ Simple platformer (in development)
+
+Godot 4.1.3
 
 dev = development folder
 
