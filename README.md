@@ -1,5 +1,5 @@
 # Get That Bit
- Simple platformer
+ Simple platformer made with godot
 
 dev = development folder
 
