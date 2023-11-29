@@ -1,14 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://gbssq3dgk4yw"]
+[gd_scene load_steps=2 format=3 uid="uid://l6hn5hc7fedx"]
 
 [ext_resource type="PackedScene" uid="uid://drnvpf6phtffr" path="res://level/level_base_class.tscn" id="1_adjue"]
 
 [node name="LevelBaseClass" instance=ExtResource("1_adjue")]
 
 [node name="TileMap" parent="." index="0"]
-layer_0/tile_data = PackedInt32Array(786434, 1, 1, 786435, 1, 1, 786436, 1, 1, 786437, 1, 1, 786438, 1, 1, 786439, 1, 1, 786440, 1, 1, 786441, 1, 1, 786442, 1, 1, 786443, 1, 1, 851979, 1, 1, 851980, 1, 1, 851981, 1, 1, 851982, 1, 1, 851983, 1, 1, 851984, 1, 1, 851985, 1, 1, 851986, 1, 1, 851987, 1, 1, 851988, 1, 1, 786452, 1, 1, 786453, 1, 1, 786454, 1, 1, 786455, 1, 1, 786456, 1, 1, 786457, 1, 1, 786458, 1, 1, 786459, 1, 1, 786460, 1, 1, 786461, 1, 1, 655375, 1, 1, 655376, 1, 1)
-
-[node name="Character" parent="." index="1"]
-position = Vector2(28, 92)
+layer_0/tile_data = PackedInt32Array(786434, 1, 1, 786435, 1, 1, 786436, 1, 1, 786437, 1, 1, 786438, 1, 1, 786439, 1, 1, 786440, 1, 1, 786441, 1, 1, 786442, 1, 1, 786443, 1, 1, 851979, 1, 1, 851980, 1, 1, 851981, 1, 1, 851982, 1, 1, 851983, 1, 1, 851984, 1, 1, 851985, 1, 1, 851986, 1, 1, 851987, 1, 1, 851988, 1, 1, 786452, 1, 1, 786453, 1, 1, 786454, 1, 1, 786455, 1, 1, 786456, 1, 1, 786457, 1, 1, 786458, 1, 1, 786459, 1, 1, 786460, 1, 1, 786461, 1, 1, 655375, 1, 1, 655376, 1, 1, 655362, 1, 1, 655363, 1, 1, 655364, 1, 1, 720900, 1, 1, 720899, 1, 1, 720898, 1, 1, 655374, 1, 1, 655377, 1, 1, 720902, 0, 65536, 655368, 0, 65536, 720906, 0, 65536, 655372, 0, 65536, 655379, 0, 65536, 720917, 0, 65536, 655383, 0, 65536, 720921, 0, 65536)
 
 [node name="Door" parent="." index="2"]
 position = Vector2(228, 92)
+
+[connection signal="body_entered" from="TileMap/@Area2D@31985" to="TileMap/@Area2D@31985" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Area2D@31986" to="TileMap/@Area2D@31986" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Area2D@31987" to="TileMap/@Area2D@31987" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Area2D@31988" to="TileMap/@Area2D@31988" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Area2D@32001" to="TileMap/@Area2D@32001" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Area2D@32002" to="TileMap/@Area2D@32002" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Area2D@32003" to="TileMap/@Area2D@32003" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Area2D@32004" to="TileMap/@Area2D@32004" method="_on_body_entered" flags=18]

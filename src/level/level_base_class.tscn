@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://6svdexcly2mi" path="res://level/TileSet000.tres" id="1_jlnk1"]
 [ext_resource type="PackedScene" uid="uid://7vyxa0r88jw1" path="res://character/character.tscn" id="1_pana2"]
-[ext_resource type="PackedScene" uid="uid://bp85158dwc5vy" path="res://objects/door.tscn" id="2_fcks6"]
+[ext_resource type="PackedScene" uid="uid://bp85158dwc5vy" path="res://object/door.tscn" id="2_fcks6"]
 
 [node name="LevelBaseClass" type="Node2D"]
 
@@ -11,7 +11,7 @@ tile_set = ExtResource("1_jlnk1")
 format = 2
 
 [node name="Character" parent="." instance=ExtResource("1_pana2")]
-position = Vector2(128, 36)
+position = Vector2(28, 76)
 
 [node name="Door" parent="." instance=ExtResource("2_fcks6")]
-position = Vector2(128, 108)
+position = Vector2(228, 76)
