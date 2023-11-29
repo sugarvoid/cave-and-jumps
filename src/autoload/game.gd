@@ -9,7 +9,10 @@ var level_number = 1000
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
-		get_tree().quit()
+		if get_tree().current_scene.name != "TitleScreen":
+			get_tree().change_scene_to_file("res://menu/title_screen.tscn")
+		else:
+			get_tree().quit()
 	
 	if Input.is_action_just_pressed("fullscreen"):
 		if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN:
