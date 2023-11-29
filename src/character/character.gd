@@ -1,15 +1,15 @@
 extends CharacterBody2D
 class_name Character
 
-const SPEED = 120.0
-const DEFAULT_GRAVITY = 900.0
-const JUMP_VELOCITY = -200.0
+const SPEED = 46.0
+const DEFAULT_GRAVITY = 240.0
+const JUMP_VELOCITY = -100.0
 const COYOTE_TIME = 0.1
 const JUMP_REDUCTION = 0.4
-const GROUND_ACCEL = 0.6
-const GROUND_DECEL = 0.5
-const AIR_ACCEL = 0.4
-const AIR_DECEL = 0.09
+const GROUND_ACCEL = 0.4
+const GROUND_DECEL = 0.4
+const AIR_ACCEL = 0.2
+const AIR_DECEL = 0.06
 
 var gravity = DEFAULT_GRAVITY
 var air_timer = 0.0
