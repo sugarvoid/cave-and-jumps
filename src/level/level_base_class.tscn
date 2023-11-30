@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://drnvpf6phtffr"]
+[gd_scene load_steps=7 format=3 uid="uid://drnvpf6phtffr"]
 
 [ext_resource type="TileSet" uid="uid://6svdexcly2mi" path="res://level/TileSet000.tres" id="1_jlnk1"]
 [ext_resource type="PackedScene" uid="uid://7vyxa0r88jw1" path="res://character/character.tscn" id="1_pana2"]
 [ext_resource type="PackedScene" uid="uid://bp85158dwc5vy" path="res://object/door.tscn" id="2_fcks6"]
+[ext_resource type="PackedScene" uid="uid://b6tgfty1qdw4a" path="res://object/bit.tscn" id="4_8g17u"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_r1dqc"]
+scenes/1/scene = ExtResource("4_8g17u")
+
+[sub_resource type="TileSet" id="TileSet_pon6i"]
+tile_size = Vector2i(2, 2)
+sources/0 = SubResource("TileSetScenesCollectionSource_r1dqc")
 
 [node name="LevelBaseClass" type="Node2D"]
 
@@ -15,3 +23,8 @@ position = Vector2(28, 76)
 
 [node name="Door" parent="." instance=ExtResource("2_fcks6")]
 position = Vector2(228, 76)
+
+[node name="Bits" type="TileMap" parent="."]
+position = Vector2(1, 1)
+tile_set = SubResource("TileSet_pon6i")
+format = 2

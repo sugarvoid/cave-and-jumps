@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://object/bit.gd" id="1_3fkug"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pwx8"]
-size = Vector2(4, 4)
+size = Vector2(2, 2)
 
 [node name="Bit" type="Area2D"]
 collision_layer = 0
