@@ -3,7 +3,7 @@ extends Control
 
 func _ready():
 	$TextureButton.grab_focus()
-	
+
 
 func _process(delta):
 	if Input.is_action_just_pressed("jump"):
