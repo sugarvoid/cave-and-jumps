@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://blfpj1whnbn1h"]
 
-[ext_resource type="Script" path="res://menu/title_screen.gd" id="2_r7je4"]
+[ext_resource type="Script" path="res://game/menu/title_screen.gd" id="1_ij6wk"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_r7je4")
+script = ExtResource("1_ij6wk")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

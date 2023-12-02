@@ -1,7 +1,11 @@
 extends Node2D
 
-const title_screen = "res://menu/title_screen.tscn"
-const end_screen = "res://menu/end_screen.tscn"
+const title_screen = "res://game/menu/title_screen.tscn"
+const end_screen = "res://game/menu/end_screen.tscn"
+
+
+@onready var item_manager = get_node("ItemManager")
+@onready var level_manager = get_node("LevelManager")
 
 
 var current_level_num = -1
@@ -9,16 +13,13 @@ var current_level: Level
 
 
 func _ready():
-	$ItemContainer.connect("item_picked_up", self.on_item_picked_up)
+	self.item_manager.connect("item_picked_up", self.on_item_picked_up)
 
 
 func _process(delta):
 	# Quit
 	if Input.is_action_just_pressed("ui_cancel"):
-		if get_tree().current_scene.name != "TitleScreen":
 			go_to_title_screen()
-		else:
-			get_tree().quit()
 	# Fullscreen
 	if Input.is_action_just_pressed("fullscreen"):
 		if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN:
@@ -52,4 +53,4 @@ func go_to_title_screen():
 
 func on_item_picked_up(item):
 	if item.name == "Key":
-		$LevelHolder.open_door()
+		self.level_manager.open_door()

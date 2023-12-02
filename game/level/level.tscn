@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://drnvpf6phtffr"]
+
+[ext_resource type="Script" path="res://game/level/level.gd" id="1_d4t6t"]
+[ext_resource type="TileSet" uid="uid://cnp52nqixnj0h" path="res://game/level/TileSet_kit.tres" id="2_skvtc"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_d4t6t")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_skvtc")
+format = 2
+
+[node name="PlayerStart" type="Marker2D" parent="."]
+
+[node name="KeyLocation" type="Marker2D" parent="."]
+
+[node name="DoorLocation" type="Marker2D" parent="."]

@@ -8,6 +8,8 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("jump"):
 		_start_game()
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().quit()
 
 
 
