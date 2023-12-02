@@ -1,17 +1,21 @@
 extends Node
 
-const level_adderess_begining = "res://level/level_"
-const level_adderess_end = ".tscn"
-const first_level_adderess = "res://level/level_1000.tscn"
+const title_screen = "res://menu/title_screen.tscn"
+const end_screen = "res://menu/end_screen.tscn"
 
-var level_number := 1000
+const first_level_adderess = "res://level/level_1000.tscn"
+const adderess_begining = "res://level/level_"
+const adderess_end = ".tscn"
+
+var current_level_number := 1000
+var current_level_address := first_level_adderess
 
 
 func _process(delta):
 	# Quit
 	if Input.is_action_just_pressed("ui_cancel"):
 		if get_tree().current_scene.name != "TitleScreen":
-			get_tree().change_scene_to_file("res://menu/title_screen.tscn")
+			go_to_title_screen()
 		else:
 			get_tree().quit()
 	# Fullscreen
@@ -24,15 +28,25 @@ func _process(delta):
 			DisplayServer.window_set_position(Vector2i(320, 180))
 
 
+func start_game():
+	get_tree().change_scene_to_file(title_screen)
+
+
 func go_to_next_level():
 	# build level address
-	var next_level_number = level_number + 1
-	var next_level_adderess = level_adderess_begining + str(next_level_number) + level_adderess_end
-	# check if level exists and change to it else go back to level 0
+	var next_level_number = current_level_number + 1
+	var next_level_adderess = adderess_begining + str(next_level_number) + adderess_end
+	
+	# check if scene exists and change scene or go to end screen
 	if ResourceLoader.exists(next_level_adderess):
-		level_number = int(next_level_number)
-		get_tree().call_deferred("change_scene_to_file", next_level_adderess)
+		current_level_number = int(next_level_number)
+		current_level_address = next_level_adderess
+		get_tree().call_deferred("change_scene_to_file", current_level_address)
 	else:
-		level_number = 1000
-		get_tree().call_deferred("change_scene_to_file", first_level_adderess)
-		
+		current_level_number = 1000
+		current_level_address =  first_level_adderess
+		get_tree().call_deferred("change_scene_to_file", end_screen)
+
+
+func go_to_title_screen():
+	get_tree().call_deferred("change_scene_to_file", title_screen)
