@@ -6,8 +6,8 @@ const DEFAULT_GRAVITY = 240.0
 const JUMP_VELOCITY = -68.0
 const COYOTE_TIME = 0.1
 const JUMP_REDUCTION = 0.4
-const GROUND_ACCEL = 0.4
-const GROUND_DECEL = 0.3
+const GROUND_ACCEL = 0.5
+const GROUND_DECEL = 0.4
 const AIR_ACCEL = 0.1
 const AIR_DECEL = 0.02
 
@@ -68,7 +68,7 @@ func _physics_process(delta):
 			else:
 				velocity.x = lerp(velocity.x, 0.0, AIR_DECEL)
 	
-		
+	
 	move_and_slide()
 
 
