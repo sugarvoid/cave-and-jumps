@@ -1,12 +1,10 @@
-# Get That Bit
+# cave and jumps
  Simple platformer (in development)
 
-Godot 4.2
+Made in Godot 4.1.3
 
-dev = development folder
 
-src = source code
+# Credit
 
-xtr = extra stuff
+- Starter code for player movement was from https://github.com/DanWaywell/get_that_bit
 
-current objectives: 1) learning/practice git hub. 2) make a complete game.
