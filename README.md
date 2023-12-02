@@ -1,7 +1,7 @@
 # cave and jumps
- Simple platformer (in development)
+ A platformer game (unfinished)
 
-Made in Godot 4.1.3
+Made in Godot 4.2
 
 
 # Credit
