@@ -1,7 +1,7 @@
 # Get That Bit
  Simple platformer (in development)
 
-Godot 4.1.3
+Godot 4.2
 
 dev = development folder
 
