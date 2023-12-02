@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://drnvpf6phtffr"]
+[gd_scene load_steps=4 format=3 uid="uid://drnvpf6phtffr"]
 
 [ext_resource type="Script" path="res://game/level/level.gd" id="1_d4t6t"]
 [ext_resource type="TileSet" uid="uid://cnp52nqixnj0h" path="res://game/level/TileSet_kit.tres" id="2_skvtc"]
+[ext_resource type="FontFile" uid="uid://dlt8v215mw4hb" path="res://game/font/monogram.ttf" id="3_i8kcv"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_d4t6t")
@@ -15,3 +16,11 @@ format = 2
 [node name="KeyLocation" type="Marker2D" parent="."]
 
 [node name="DoorLocation" type="Marker2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("3_i8kcv")
+theme_override_font_sizes/font_size = 16
+text = "0 - Just two jumps"
