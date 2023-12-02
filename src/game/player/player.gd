@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name Character
+class_name Player
 
 const SPEED = 60.0
 const DEFAULT_GRAVITY = 240.0

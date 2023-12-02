@@ -6,7 +6,7 @@ var picked_up = false
 
 
 func _on_body_entered(body):
-	if body is Character and not picked_up:
+	if body is Player and not picked_up:
 		picked_up = true
 		collision.set_deferred("disabled", true)
 		self.call_deferred("queue_free")
