@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://drnvpf6phtffr"]
+
+[ext_resource type="Script" path="res://level/level.gd" id="1_15h4i"]
+[ext_resource type="TileSet" uid="uid://cnp52nqixnj0h" path="res://level/TileSet_kit.tres" id="2_jfuwq"]
+[ext_resource type="Script" path="res://level/bits.gd" id="4_3egle"]
+[ext_resource type="PackedScene" uid="uid://cw7nbmotd0y77" path="res://game/object/door/door.tscn" id="6_kckpe"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_15h4i")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_jfuwq")
+format = 2
+
+[node name="Bits" type="Node2D" parent="."]
+script = ExtResource("4_3egle")
+
+[node name="PlayerStart" type="Marker2D" parent="."]
+
+[node name="KeyLocation" type="Marker2D" parent="."]
+
+[node name="Door2" parent="." instance=ExtResource("6_kckpe")]
+position = Vector2(228, 73)

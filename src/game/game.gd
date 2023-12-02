@@ -1,14 +1,11 @@
-extends Node
+extends Node2D
 
 const title_screen = "res://menu/title_screen.tscn"
 const end_screen = "res://menu/end_screen.tscn"
 
-const first_level_adderess = "res://level/level_1000.tscn"
-const adderess_begining = "res://level/level_"
-const adderess_end = ".tscn"
 
-var current_level_number := 1000
-var current_level_address := first_level_adderess
+var current_level_num = -1
+var current_level: Level
 
 
 func _process(delta):
@@ -32,20 +29,17 @@ func start_game():
 	get_tree().change_scene_to_file(title_screen)
 
 
-func go_to_next_level():
+
+func go_to_next_level(curr_level: int):
 	# build level address
-	var next_level_number = current_level_number + 1
-	var next_level_adderess = adderess_begining + str(next_level_number) + adderess_end
+	var next_level = curr_level + 1
+	var next_level_path: String = str("res://level/level_", curr_level, ".tscn")
 	
 	# check if scene exists and change scene or go to end screen
-	if ResourceLoader.exists(next_level_adderess):
-		current_level_number = int(next_level_number)
-		current_level_address = next_level_adderess
-		get_tree().call_deferred("change_scene_to_file", current_level_address)
+	if ResourceLoader.exists(next_level_path):
+		get_tree().call_deferred("change_scene_to_file", next_level_path)
 	else:
-		current_level_number = 1000
-		current_level_address =  first_level_adderess
-		get_tree().call_deferred("change_scene_to_file", end_screen)
+		print("level not there")
 
 
 func go_to_title_screen():

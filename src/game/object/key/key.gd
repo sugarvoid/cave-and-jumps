@@ -4,8 +4,6 @@ var picked_up = false
 
 @onready var collision = $CollisionShape2D
 
-func  _ready():
-	$AnimationPlayer.play("hover")
 
 func _on_body_entered(body):
 	if body is Character and not picked_up:

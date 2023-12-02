@@ -1,9 +1,9 @@
 extends CharacterBody2D
-class_name Player
+class_name Character
 
-const SPEED = 46.0
+const SPEED = 60.0
 const DEFAULT_GRAVITY = 240.0
-const JUMP_VELOCITY = -68.0
+const JUMP_VELOCITY = -80.0
 const COYOTE_TIME = 0.1
 const JUMP_REDUCTION = 0.4
 const GROUND_ACCEL = 0.5
@@ -21,10 +21,43 @@ var can_reduce_jump = true
 var can_turn = true
 var can_move = true
 
+var anim = "idle"
+
 @onready var PrejumpTimer = $PrejumpTimer
 
 
+func _ready():
+	$AnimatedSprite2D.play("idle")
+
 func _physics_process(delta):	
+	
+	
+	if self.direction_facing == Vector2.LEFT:
+		$AnimatedSprite2D.flip_h = true
+	else:
+		$AnimatedSprite2D.flip_h = false
+	
+	var new_anim = ""
+	if self.is_on_floor():
+		if abs(self.velocity.x) < 1:
+			new_anim = "idle"
+		else:
+			new_anim = "run"
+	else:
+		if self.velocity.y < 0:
+			new_anim = "jump"
+		else:
+			new_anim = "fall"
+	
+	if new_anim != anim:
+		anim = new_anim
+		$AnimatedSprite2D.play(anim)
+	
+	
+	
+	
+	
+	
 	input_direction = Input.get_axis("left", "right")
 	
 	if not is_on_floor():

@@ -11,4 +11,8 @@ func _process(delta):
 
 
 func _on_texture_button_pressed():
-	get_tree().change_scene_to_file(Game.current_level_address)
+	_start_game()
+	
+
+func _start_game() -> void:
+	get_tree().change_scene_to_file("res://game/game.tscn")
