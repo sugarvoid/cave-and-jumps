@@ -1,20 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy8t6ugljp1en"]
+[gd_scene load_steps=8 format=3 uid="uid://dy8t6ugljp1en"]
 
 [ext_resource type="PackedScene" uid="uid://cnf4txh0vggs2" path="res://level/level_0.tscn" id="1_j5bok"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_r5jxx"]
 [ext_resource type="PackedScene" uid="uid://dqxoxx0e8al86" path="res://game/player/player.tscn" id="2_5y2ob"]
+[ext_resource type="Script" path="res://game/level_holder.gd" id="2_q2ea6"]
+[ext_resource type="Script" path="res://game/item_container.gd" id="3_csu5p"]
+[ext_resource type="PackedScene" uid="uid://cw7nbmotd0y77" path="res://game/object/door/door.tscn" id="3_d4uk7"]
 [ext_resource type="PackedScene" uid="uid://dw6jklkfq7mm6" path="res://game/object/key/key.tscn" id="3_t7cb4"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_r5jxx")
 
-[node name="Level" type="Node2D" parent="."]
+[node name="LevelHolder" type="Node2D" parent="."]
+script = ExtResource("2_q2ea6")
 
-[node name="Level_0" parent="Level" instance=ExtResource("1_j5bok")]
+[node name="Level_0" parent="LevelHolder" instance=ExtResource("1_j5bok")]
+
+[node name="Door" parent="LevelHolder" instance=ExtResource("3_d4uk7")]
+position = Vector2(210, 72)
 
 [node name="Node2D2" type="Node2D" parent="."]
 
 [node name="ItemContainer" type="Node2D" parent="."]
+script = ExtResource("3_csu5p")
 
 [node name="Key" parent="ItemContainer" instance=ExtResource("3_t7cb4")]
 position = Vector2(166, 74)

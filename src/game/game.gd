@@ -8,6 +8,10 @@ var current_level_num = -1
 var current_level: Level
 
 
+func _ready():
+	$ItemContainer.connect("item_picked_up", self.on_item_picked_up)
+
+
 func _process(delta):
 	# Quit
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -44,3 +48,8 @@ func go_to_next_level(curr_level: int):
 
 func go_to_title_screen():
 	get_tree().call_deferred("change_scene_to_file", title_screen)
+	
+
+func on_item_picked_up(item):
+	if item.name == "Key":
+		$LevelHolder.open_door()

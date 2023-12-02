@@ -1,10 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://blfpj1whnbn1h"]
+[gd_scene load_steps=2 format=3 uid="uid://blfpj1whnbn1h"]
 
-[ext_resource type="Texture2D" uid="uid://cgn3do3knpnul" path="res://assets/title_image.png" id="2_loxo0"]
 [ext_resource type="Script" path="res://menu/title_screen.gd" id="2_r7je4"]
-[ext_resource type="Texture2D" uid="uid://ydros7d3ljpu" path="res://assets/button_start_normal.png" id="3_eu8gf"]
-[ext_resource type="Texture2D" uid="uid://d1rxxfs2k02gk" path="res://assets/button_start_pressed.png" id="4_y25je"]
-[ext_resource type="Texture2D" uid="uid://bfkmnthwtjmmi" path="res://assets/button_start_hover.png" id="5_8dohg"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -15,23 +11,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_r7je4")
 
-[node name="TitleImage" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_loxo0")
-
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 101.0
-offset_top = 99.0
-offset_right = 155.0
-offset_bottom = 125.0
-texture_normal = ExtResource("3_eu8gf")
-texture_pressed = ExtResource("4_y25je")
-texture_hover = ExtResource("5_8dohg")
+offset_left = 66.0
+offset_top = 28.0
+offset_right = 189.0
+offset_bottom = 54.0
+text = "Cave and Jumps"
 
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 87.0
+offset_right = 151.0
+offset_bottom = 118.0
+text = "Play"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

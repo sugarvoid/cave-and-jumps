@@ -14,7 +14,7 @@ const spr_close = 2
 func _ready():
 	self.sprite_2d.frame = spr_close
 
-func _open_door():
+func open():
 	self.is_open = true
 	self.sprite_2d.frame = spr_open
 
