@@ -17,7 +17,7 @@ format = 2
 
 [node name="DoorLocation" type="Marker2D" parent="."]
 
-[node name="Label" type="Label" parent="."]
+[node name="LblTitle" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
 scale = Vector2(0.5, 0.5)

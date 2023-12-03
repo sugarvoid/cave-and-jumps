@@ -20,3 +20,6 @@ func open_door():
 
 func _go_to_next_level():
 	print("going to next level")
+
+func set_level_title(text: String):
+	pass
